@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Perfil profesional de David Rodríguez, desarrollador C# y .NET.">
+  <title>David Rodríguez | .NET Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0d14;
+      --surface: #121622;
+      --surface-2: #171d2c;
+      --text: #eef0f8;
+      --muted: #a0a8bd;
+      --accent: #8065f5;
+      --accent-2: #b09cff;
+      --line: rgba(166, 158, 220, .16);
+      --green: #63d9ad;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background:
+        radial-gradient(ellipse at 12% 0%, rgba(81,45,212,.22), transparent 34rem),
+        radial-gradient(ellipse at 90% 35%, rgba(42,112,180,.10), transparent 30rem), var(--bg);
+      font-family: Inter, sans-serif; line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1080px, calc(100% - 40px)); margin: auto; }
+    header { padding: 24px 0; border-bottom: 1px solid var(--line); }
+    nav { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { font-family:"DM Mono", monospace; font-weight:500; letter-spacing:-1px; }
+    .brand span { color:var(--accent-2); }
+    .nav-links { display:flex; gap:26px; color:var(--muted); font-size:.88rem; }
+    .nav-links a:hover { color:white; }
+    .hero { text-align:center; padding:82px 0 65px; }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:9px; padding:7px 13px;
+      border:1px solid var(--line); border-radius:30px; color:#c6baff;
+      background:rgba(128,101,245,.08); font: .78rem "DM Mono",monospace;
+    }
+    .pulse { width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green); }
+    h1 { margin:22px 0 8px; font-size:clamp(2.7rem,7vw,5.2rem); line-height:1.08; letter-spacing:-.065em; }
+    h1 .gradient { background:linear-gradient(100deg,#fff 20%,#b8a8ff 75%,#8bceff);-webkit-background-clip:text;background-clip:text;color:transparent; }
+    .role { color:var(--accent-2); font:clamp(.95rem,2.5vw,1.25rem) "DM Mono",monospace; min-height:2rem; }
+    .hero-copy { max-width:680px; margin:22px auto 27px; color:var(--muted); font-size:1.04rem; }
+    .actions { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; }
+    .btn { display:inline-flex; align-items:center; gap:9px; padding:11px 17px; border-radius:9px; font-weight:700; font-size:.9rem; transition:.2s; }
+    .btn-primary { background:var(--accent); box-shadow:0 8px 30px rgba(81,45,212,.25); }
+    .btn-secondary { border:1px solid var(--line); background:rgba(255,255,255,.025); }
+    .btn:hover { transform:translateY(-2px); filter:brightness(1.12); }
+    .code-card {
+      max-width:670px; margin:54px auto 0; padding:18px 22px; text-align:left;
+      border:1px solid var(--line); border-radius:13px; background:rgba(18,22,34,.82);
+      box-shadow:0 22px 65px rgba(0,0,0,.22); font: .83rem/1.9 "DM Mono",monospace; color:#b6bfd3;
+    }
+    .code-top { display:flex; gap:6px; padding-bottom:12px; margin-bottom:12px; border-bottom:1px solid var(--line); }
+    .dot { width:9px;height:9px;border-radius:50%;background:#fa7777; }.dot:nth-child(2){background:#e9bd65}.dot:nth-child(3){background:#68c99c}
+    .code-purple { color:#b09cff; }.code-green { color:#8bdcb5; }.code-muted { color:#66718b; }
+    section { padding:58px 0; }
+    .section-head { margin-bottom:27px; }
+    .kicker { color:var(--accent-2); text-transform:uppercase; letter-spacing:.15em; font: .72rem "DM Mono",monospace; }
+    h2 { margin:7px 0 0; font-size:clamp(1.8rem,4vw,2.5rem); letter-spacing:-.045em; }
+    .about-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:22px; }
+    .panel { background:linear-gradient(145deg,rgba(23,29,44,.95),rgba(17,21,32,.95)); border:1px solid var(--line); border-radius:16px; padding:27px; }
+    .panel p { color:var(--muted); margin:0 0 14px; }
+    .panel p:last-child { margin-bottom:0; }
+    .traits { display:grid; gap:13px; }
+    .trait { display:flex; gap:12px; align-items:flex-start; color:#d8dced; font-size:.92rem; }
+    .trait b { color:var(--accent-2); font-size:1.1rem; }
+    .stack-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
+    .stack-card { background:var(--surface); border:1px solid var(--line); border-radius:15px; padding:23px; }
+    .stack-card h3 { margin:0 0 18px; font-size:1.02rem; }
+    .stack-card h3 span { margin-right:8px; }
+    .badges { display:flex; flex-wrap:wrap; gap:9px; }
+    .badge { display:inline-flex; align-items:center; gap:7px; padding:8px 10px; border-radius:7px; background:var(--surface-2); border:1px solid rgba(255,255,255,.06); color:#dce1ef; font-size:.78rem; font-weight:600; }
+    .badge img { width:17px;height:17px;object-fit:contain; }
+    .contact { text-align:center; padding:38px 25px; }
+    .contact p { max-width:600px; margin:10px auto 23px; color:var(--muted); }
+    .quote { margin:34px 0 0; color:#c5b9ff; font:italic .94rem "DM Mono",monospace; }
+    footer { margin-top:45px; padding:30px 0 0; border-top:1px solid var(--line); text-align:center; color:#788198; font-size:.8rem; }
+    footer .wave { color:var(--accent-2); font-size:1.2rem; }
+    @media(max-width:760px) {
+      .nav-links { gap:13px; font-size:.78rem; }
+      .about-grid,.stack-grid { grid-template-columns:1fr; }
+      .hero { padding-top:60px; }
+    }
+    @media(max-width:440px) {
+      .container { width:min(100% - 28px,1080px); }
+      .nav-links a:nth-child(2) { display:none; }
+      .panel,.stack-card { padding:21px; }
+      .code-card { padding:14px; font-size:.72rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="#">david<span>.</span>dev</a>
+        <div class="nav-links">
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#stack">Tech stack</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="eyebrow"><span class="pulse"></span> DESARROLLADOR · ESPAÑA</div>
+      <h1>Hola, soy <span class="gradient">David Rodríguez</span></h1>
+      <div class="role">C# | .NET Developer</div>
+      <p class="hero-copy">Construyo soluciones de software eficientes, escalables y mantenibles. Me apasiona el backend, la arquitectura de software y escribir código que dé gusto mantener.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://github.com/DavidRodriguezGonzalez" target="_blank" rel="noopener">⌘ GitHub</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/david-rodr%C3%ADguez-gonz%C3%A1lez-76aa45a4/" target="_blank" rel="noopener">↗ LinkedIn</a>
+        <a class="btn btn-secondary" href="#sobre-mi">Conóceme ↓</a>
+      </div>
+      <div class="code-card">
+        <div class="code-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+        <div><span class="code-purple">public class</span> Developer</div>
+        <div>{</div>
+        <div>&nbsp;&nbsp;<span class="code-purple">public string</span> Name =&gt; <span class="code-green">"David Rodríguez"</span>;</div>
+        <div>&nbsp;&nbsp;<span class="code-purple">public string</span> Focus =&gt; <span class="code-green">"C# · .NET · Backend"</span>;</div>
+        <div>&nbsp;&nbsp;<span class="code-purple">public bool</span> LovesCleanCode =&gt; <span class="code-green">true</span>;</div>
+        <div>&nbsp;&nbsp;<span class="code-muted">// Siempre aprendiendo algo nuevo...</span></div>
+        <div>}</div>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="container">
+      <div class="section-head"><div class="kicker">01 / Un poco sobre mí</div><h2>🚀 Sobre mí</h2></div>
+      <div class="about-grid">
+        <div class="panel">
+          <p>¡Hola! Soy David Rodríguez, desarrollador apasionado por la tecnología y la programación, especializado en el ecosistema <strong>C# y .NET</strong>.</p>
+          <p>Me gusta diseñar y desarrollar soluciones eficientes, escalables y mantenibles, prestando especial atención a la calidad del código y a las buenas prácticas de desarrollo.</p>
+          <p>Siempre estoy buscando nuevos retos que me permitan seguir creciendo profesionalmente y ampliar mis conocimientos.</p>
+        </div>
+        <div class="panel traits">
+          <div class="trait"><b>💻</b><span>Especializado en desarrollo con C# y .NET.</span></div>
+          <div class="trait"><b>⚙️</b><span>Interesado en desarrollo backend y arquitectura de software.</span></div>
+          <div class="trait"><b>🧩</b><span>Apasionado por resolver problemas mediante código.</span></div>
+          <div class="trait"><b>🧠</b><span>En constante aprendizaje y evolución.</span></div>
+          <div class="trait"><b>🎯</b><span>Comprometido con el código limpio y las buenas prácticas.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="container">
+      <div class="section-head"><div class="kicker">02 / Con qué trabajo</div><h2>🛠️ Tech Stack</h2></div>
+      <div class="stack-grid">
+        <article class="stack-card">
+          <h3><span>💻</span>Lenguajes</h3>
+          <div class="badges">
+            <span class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt=""> C#</span>
+            <span class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt=""> JavaScript</span>
+            <span class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt=""> HTML5</span>
+            <span class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt=""> CSS3</span>
+            <span class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt=""> SQL Server</span>
+          </div>
+        </article>
+        <article class="stack-card">
+          <h3><span>⚙️</span>Frameworks y tecnologías</h3>
+          <div class="badges">
+            <span class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=""> .NET</span>
+            <span class="badge">ASP.NET Core</span>
+            <span class="badge">LINQ</span>
+            <span class="badge">REST API</span>
+          </div>
+        </article>
+        <article class="stack-card">
+          <h3><span>🔧</span>Herramientas</h3>
+          <div class="badges">
+            <span class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt=""> Visual Studio</span>
+            <span class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt=""> VS Code</span>
+            <span class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt=""> Git</span>
+            <span class="badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt=""> GitHub</span>
+            <span class="badge">SSMS</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacto" class="container">
+      <div class="panel contact">
+        <div class="kicker">03 / Hablemos</div>
+        <h2>📫 Conectemos</h2>
+        <p>¿Tienes alguna idea, proyecto interesante o simplemente quieres hablar sobre tecnología? ¡Estaré encantado de conectar!</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/david-rodr%C3%ADguez-gonz%C3%A1lez-76aa45a4/" target="_blank" rel="noopener">in&nbsp; LinkedIn</a>
+          <a class="btn btn-secondary" href="https://github.com/DavidRodriguezGonzalez" target="_blank" rel="noopener">⌘&nbsp; GitHub</a>
+        </div>
+        <div class="quote">“Clean code is not written by following a set of rules.<br>It's written by someone who cares.”</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <div class="wave">⌁</div>
+    Hecho con 💜 por David Rodríguez · 2026
+  </footer>
+</body>
+</html>
